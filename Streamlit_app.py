@@ -6,7 +6,7 @@ import plotly.express as px
 st.set_page_config(layout="wide", page_title="Sales Analysis")
 st.title("Sales Data Analysis")
 
-df = pd.read_csv("data/cleaned_sales.csv", parse_dates=["date"])
+df = pd.read_csv("cleaned_sales.csv", parse_dates=["date"])
 
 # Sidebar filters
 st.sidebar.header("Filters")
@@ -41,4 +41,5 @@ st.header("Raw data (preview)")
 st.dataframe(dd.sort_values("date", ascending=False).head(200))
 
 csv = dd.to_csv(index=False)
+
 st.download_button("Download filtered CSV", data=csv, file_name="filtered_sales.csv")
